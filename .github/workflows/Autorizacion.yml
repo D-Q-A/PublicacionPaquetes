@@ -22,20 +22,20 @@ jobs:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: ./AutorizacionMiddleware
+      working-directory: ./AutorizacionMiddleware/Autorizacion.Middleware
     - name: Build
       run: dotnet build --no-restore
-      working-directory: ./AutorizacionMiddleware
+      working-directory: ./AutorizacionMiddleware/Autorizacion.Middleware
     - name: Pack      
       run: dotnet pack
-      working-directory: ./AutorizacionMiddleware
+      working-directory: ./AutorizacionMiddleware/Autorizacion.Middleware
       
     - uses: actions/upload-artifact@v4
       with:
         name: Autorizacion.Middleware
         if-no-files-found: error
         retention-days: 7
-        path: /home/runner/work/PublicacionPaquetes/PublicacionPaquetes/AutorizacionMiddleware/*/*/*/*.nupkg
+        path: /home/runner/work/PublicacionPaquetes/PublicacionPaquetes/AutorizacionMiddleware/Autorizacion.Middleware/bin/Release/*.nupkg
 
   release:
     runs-on: ubuntu-latest    
@@ -51,7 +51,7 @@ jobs:
       run: ls -R
       
     - name: Prep packages
-      run: dotnet nuget add source --username D-Q-A --password ${{ secrets.PAQUETES_TOKEN }} --store-password-in-clear-text --name paquetes "https://nuget.pkg.github.com/D-Q-A/index.json"
+      run: dotnet nuget add source --username D-Q-A --password ${{ secrets.NUGET_TOKEN }} --store-password-in-clear-text --name paquetes "https://nuget.pkg.github.com/D-Q-A/index.json"
     - name: Push package to GitHub packages 
-      run: dotnet nuget push Autorizacion.Middleware/*/*/*/*.nupkg --api-key ${{ secrets.PAQUETES_TOKEN }}  --source "paquetes" --skip-duplicate
+      run: dotnet nuget push Autorizacion.Middleware/*.nupkg --api-key ${{ secrets.NUGET_TOKEN }}  --source "paquetes" --skip-duplicate
     
