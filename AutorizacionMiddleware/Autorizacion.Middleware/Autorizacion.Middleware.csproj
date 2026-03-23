@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Abstracciones.BW\Autorizacion.BW.csproj" />
+    <ProjectReference Include="..\Autorizacion.DA\Autorizacion.DA.csproj" />
+    <ProjectReference Include="..\AutorizacionAbstracciones\Autorizacion.Abstracciones.csproj" />
+  </ItemGroup>
+
+</Project>
