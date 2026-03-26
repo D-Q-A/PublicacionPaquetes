@@ -1,2 +1,1 @@
-# PublicacionPaquetes
-Repositorio para publicar paquetes
+Proyecto de Publicacion de Paquetes

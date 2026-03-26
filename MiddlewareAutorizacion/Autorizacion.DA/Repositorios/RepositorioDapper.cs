@@ -1,4 +1,4 @@
-﻿using AutorizacionAbstracciones.DA;
+﻿using Autorizacion.Abstracciones.DA;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 
@@ -6,13 +6,13 @@ namespace Autorizacion.DA.Repositorios
 {
     public class RepositorioDapper : IRepositorioDapper
     {
-        private readonly IConfiguration _configuration;
+        private readonly IConfiguration _configutarion;
         private SqlConnection _connection;
 
         public RepositorioDapper(IConfiguration configutarion)
         {
-            _configuration = configutarion;
-            _connection = new SqlConnection(_configuration.GetConnectionString("BDSeguridad"));
+            _configutarion = configutarion;
+            _connection = new SqlConnection(_configutarion.GetConnectionString("BDSeguridad"));
         }
 
         public SqlConnection ObtenerRepositorioDapper()

@@ -1,19 +1,19 @@
-﻿using AutorizacionAbstracciones.BW;
-using AutorizacionAbstracciones.DA;
-using AutorizacionAbstracciones.Modelos;
+﻿using Autorizacion.Abstracciones.Flujo;
+using Autorizacion.Abstracciones.DA;
+using Autorizacion.Abstracciones.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Autorizacion.BW
+namespace Autorizacion.Flujo
 {
-    public class AutorizacionBW : IAutorizacionBW
+    public class AutorizacionFlujo : IAutorizacionFlujo
     {
         private ISeguridadDA _seguridadDA;
 
-        public AutorizacionBW(ISeguridadDA seguridadDA)
+        public AutorizacionFlujo(ISeguridadDA seguridadDA)
         {
             _seguridadDA = seguridadDA;
         }
@@ -25,7 +25,7 @@ namespace Autorizacion.BW
 
         public async Task<Usuario> ObtenerUsuario(Usuario usuario)
         {
-            return await _seguridadDA.ObtenerUsuario(usuario);
+            return await _seguridadDA.ObtenerInformacionUsuario(usuario);
         }
     }
 }
