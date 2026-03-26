@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - 'AutorizacionMiddleware/**'
+      - 'MiddlewareAutorizacion/**'
   workflow_dispatch:
 
   
@@ -26,21 +26,21 @@ jobs:
 
       - name: Restaurar dependencias
         run: |
-          cd "AutorizacionMiddleware"
+          cd "MiddlewareAutorizacion"
           dotnet restore
 
       - name: Compilar en Release
         run: |
-          cd "AutorizacionMiddleware"
+          cd "MiddlewareAutorizacion"
           dotnet build --configuration Release --no-restore
 
       - name: Cleanup old .nupkg files
         run: |
-          rm -f AutorizacionMiddleware/nupkgs/*.nupkg
+          rm -f MiddlewareAutorizacion/nupkgs/*.nupkg
 
       - name: Empaquetar (dotnet pack)
         run: |
-          cd "AutorizacionMiddleware"
+          cd "MiddlewareAutorizacion"
           dotnet pack --configuration Release --no-build --output ./nupkgs
 
       - name: Set up NuGet sources
@@ -48,7 +48,7 @@ jobs:
 
       - name: Publicar en GitHub Packages
         run: |
-          cd "AutorizacionMiddleware"
+          cd "MiddlewareAutorizacion"
           dotnet nuget push ./nupkgs/*.nupkg \
             --source "https://nuget.pkg.github.com/D-Q-A/index.json" \
             --api-key ${{ secrets.GITHUB_TOKEN }} \
