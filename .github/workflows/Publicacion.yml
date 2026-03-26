@@ -44,12 +44,12 @@ jobs:
           dotnet pack --configuration Release --no-build --output ./nupkgs
 
       - name: Set up NuGet sources
-        run: dotnet nuget add source "https://nuget.pkg.github.com/SC-701/index.json" --name "github" --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
+        run: dotnet nuget add source "https://nuget.pkg.github.com/D-Q-A/index.json" --name "github" --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
 
       - name: Publicar en GitHub Packages
         run: |
           cd "AutorizacionMiddleware"
           dotnet nuget push ./nupkgs/*.nupkg \
-            --source "https://nuget.pkg.github.com/SC-701/index.json" \
+            --source "https://nuget.pkg.github.com/D-Q-A/index.json" \
             --api-key ${{ secrets.GITHUB_TOKEN }} \
             --skip-duplicate
