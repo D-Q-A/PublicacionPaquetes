@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Marcas] (
+    [Id]     UNIQUEIDENTIFIER NOT NULL,
+    [Nombre] NVARCHAR (MAX)   NOT NULL,
+    CONSTRAINT [PK_Marcas] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
