@@ -19,7 +19,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("{Id}")]
-        [Authorize]
+        [AllowAnonymous]
         public async Task<IActionResult> EliminarUsuario(Guid Id)
         {
             var resultado = await _usuarioFlujo.EliminarUsuario(Id);
