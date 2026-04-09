@@ -1,4 +1,5 @@
 ﻿using Abstracciones.Modelos;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace Abstracciones.Flujo
     {
         Task<Guid> AgregarUsuario(Usuario usuario);
         Task<Usuario> ObtenerUsuario(Usuario usuario);
+        Task<Guid> EliminarUsuario(Guid Id);
     }
 }

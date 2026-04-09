@@ -18,6 +18,14 @@ namespace API.Controllers
             _usuarioFlujo = usuarioFlujo;
         }
 
+        [HttpDelete("{Id}")]
+        [Authorize]
+        public async Task<IActionResult> EliminarUsuario(Guid Id)
+        {
+            var resultado = await _usuarioFlujo.EliminarUsuario(Id);
+            return NoContent();
+        }
+
         [Authorize(Roles ="1")]
         [HttpPost("ObtenerInformacionUsuario")]
         public async Task<IActionResult> ObtenerUsuario([FromBody] Usuario usuario)

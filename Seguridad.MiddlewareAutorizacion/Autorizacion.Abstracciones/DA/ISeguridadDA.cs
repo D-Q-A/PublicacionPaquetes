@@ -12,5 +12,7 @@ namespace Autorizacion.Abstracciones.DA
         Task<Usuario> ObtenerInformacionUsuario(Usuario usuario);
 
         Task<IEnumerable<Perfil>> ObtenerPerfilesxUsuario(Usuario usuario);
+
+        Task<Guid> EliminarUsuario(Guid Id);
     }
 }

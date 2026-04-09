@@ -3,7 +3,6 @@ using Autorizacion.Abstracciones.Modelos;
 using System.Data.SqlClient;
 using Dapper;
 
-
 namespace Autorizacion.DA
 {
     public class SeguridadDA : ISeguridadDA
@@ -29,6 +28,17 @@ namespace Autorizacion.DA
             string sql = @"[ObtenerUsuario]";
             var resultado = await _sqlConnection.QueryAsync<Usuario>(sql, new { CorreoElectronico = usuario.CorreoElectronico, NombreUsuario = usuario.NombreUsuario });
             return resultado.FirstOrDefault();
+        }
+
+        public async Task<Guid> EliminarUsuario(Guid Id)
+        {
+            string sql = @"[EliminarUsuario]";
+            var resultado = await _sqlConnection.ExecuteScalarAsync<Guid>(sql, new
+            {
+
+                Id = Id
+            });
+            return resultado;
         }
     }
 }

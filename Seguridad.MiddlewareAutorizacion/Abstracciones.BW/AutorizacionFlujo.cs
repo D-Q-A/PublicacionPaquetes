@@ -18,6 +18,11 @@ namespace Autorizacion.Flujo
             _seguridadDA = seguridadDA;
         }
 
+        public async Task<Guid> EliminarUsuario(Guid Id)
+        {
+            return await _seguridadDA.EliminarUsuario(Id);
+        }
+
         public async Task<IEnumerable<Perfil>> ObtenerPerfilesxUsuario(Usuario usuario)
         {
             return await _seguridadDA.ObtenerPerfilesxUsuario(usuario);

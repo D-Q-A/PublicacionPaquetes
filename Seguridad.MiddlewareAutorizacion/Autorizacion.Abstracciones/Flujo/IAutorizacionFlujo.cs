@@ -11,5 +11,6 @@ namespace Autorizacion.Abstracciones.Flujo
     {
         Task<Usuario> ObtenerUsuario(Usuario usuario);
         Task<IEnumerable<Perfil>> ObtenerPerfilesxUsuario(Usuario usuario);
+        Task<Guid> EliminarUsuario(Guid Id);
     }
 }

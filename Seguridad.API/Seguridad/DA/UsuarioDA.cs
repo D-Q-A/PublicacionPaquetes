@@ -24,6 +24,17 @@ namespace DA
             return resultado;
         }
 
+        public async Task<Guid> EliminarUsuario(Guid Id)
+        {
+            string sql = @"[EliminarUsuario]";
+            var resultado = await _sqlConnection.ExecuteScalarAsync<Guid>(sql, new
+            {
+
+                Id = Id
+            });
+            return resultado;
+        }
+
         public async Task<IEnumerable<Perfil>> ObtenerPerfilesxUsuario(Usuario usuario)
         {
             string sql = @"[ObtenerPerfilesxUsuario]";

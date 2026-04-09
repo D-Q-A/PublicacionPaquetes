@@ -23,6 +23,11 @@ namespace Flujo
             return await _usuarioDA.AgregarUsuario(usuario);
         }
 
+        public async Task<Guid> EliminarUsuario(Guid Id)
+        {
+            return await _usuarioDA.EliminarUsuario(Id);
+        }
+
         public async Task<Usuario> ObtenerUsuario(Usuario usuario)
         {
             return await _usuarioDA.ObtenerUsuario(usuario);
